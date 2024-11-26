@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 100vh;
+  background-image: url('./assets/bg.avif');
+  background-size: cover; 
+  background-position: center; /* Centers the image on the page */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  /* background-color: #000; */
+}
