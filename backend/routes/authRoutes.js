@@ -48,6 +48,7 @@ router.post("/signup", async (req, res) => {
 
 router.post('/login', async (req,res)=>{
     try{
+        console.log("hi login")
         const { email, password} = req.body;
         const user = await User.findOne({ email });
 
@@ -69,5 +70,15 @@ router.post('/login', async (req,res)=>{
 		res.status(500).json({ error: "Internal Server Error" });
     }
 });
-
+router.post('/logout', async (req,res)=>{
+  try {
+		//just delete the jwt present in the cookie.
+		res.cookie("jwt", "", { maxAge: 0 });
+		res.status(200).json({ message: "Logged out successfully" });
+	} 
+	catch (error) {
+		console.log("Error in logout controller", error.message);
+		res.status(500).json({ error: "Internal Server Error" });
+	}
+});
 export default router;

@@ -4,11 +4,12 @@ import quizRoutes from './routes/quizRoutes.js'
 import authRoutes from './routes/authRoutes.js'
 import cookieParser from 'cookie-parser';
 import dotenv from "dotenv";
-
+import cors from 'cors'
 const port = 5000;
 const app = express();
 
 //MIDDLEWARES
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 dotenv.config();
