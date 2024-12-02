@@ -48,8 +48,6 @@ router.post("/start/:id", protectRoute, async (req, res) => {
 
     await quiz.save();
     
-    console.log("Quiz questions:", quiz.questions);
-
     res.status(200).json({
       message: "Quiz started",
       startedAt,

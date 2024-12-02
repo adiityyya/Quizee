@@ -8,9 +8,6 @@ const Quiz = () => {
   const { state } = useLocation();
   const data = state?.quizData;
 
-  console.log("this is quiz");
-  console.log(data);
-
   const [index, setIndex] = useState(0); // Current question index
   const [score, setScore] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);

@@ -24,7 +24,7 @@ app.use("/api/auth", authRoutes);
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
 app.get("*", (req, res) => {
-    console.log("hello ji")
+  console.log("hello ji");
   res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
@@ -36,7 +36,6 @@ app.listen(port, () => {
       .catch((error) => {
         console.error('Error connecting to MongoDB:', error);
       });
-  
     console.log(`Server Running on port ${port}`);
   });
   
