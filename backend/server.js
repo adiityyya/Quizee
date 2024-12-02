@@ -1,5 +1,5 @@
 import express from "express";
-import connectToMongoDB from "./db/connectToMongoDb.js";
+import connectToMongoDB from "./db/connectToMongoDB.js";
 import quizRoutes from "./routes/quizRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import cookieParser from "cookie-parser";
