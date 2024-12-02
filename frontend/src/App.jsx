@@ -1,7 +1,8 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Quiz from "./components/quiz/Quiz";
-import Login from "./pages/login/login";
+import Login from "./pages/login/Login";
+
 import Signup from "./pages/signup/Signup";
 import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/AuthContext";
