@@ -47,18 +47,16 @@ router.post("/start/:id", protectRoute, async (req, res) => {
     quiz.submissions.push({ email, startedAt, expiresAt });
 
     await quiz.save();
+    
+    console.log("Quiz questions:", quiz.questions);
 
-    // Issue token with quizId
-    //   const token = jwt.sign({ email, quizId: id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-    res
-      .status(200)
-      .json({
-        message: "Quiz started",
-        startedAt,
-        expiresAt,
-        duration: quiz.duration,
-      });
+    res.status(200).json({
+      message: "Quiz started",
+      startedAt,
+      expiresAt,
+      duration: quiz.duration,
+      questions: quiz.questions,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

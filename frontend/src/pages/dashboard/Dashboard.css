@@ -1,0 +1,125 @@
+/* Basic reset and font settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+  }
+  
+  /* Container for the dashboard */
+  .dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+  }
+  
+  .dashboard-content {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  /* Heading styles */
+  .dashboard-content h1 {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-content p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styles */
+  .dashboard-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .dashboard-buttons button {
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .dashboard-buttons button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .dashboard-buttons button:active {
+    transform: translateY(0);
+  }
+  
+  /* Red button with plus sign */
+  .dashboard-buttons .create-quiz {
+    background-color: red;
+  }
+  
+  .dashboard-buttons .create-quiz:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Blue button */
+  .dashboard-buttons .attempt-quiz {
+    background-color: blue;
+  }
+  
+  .dashboard-buttons .attempt-quiz:hover {
+    background-color: #1976d2;
+  }
+  
+  /* Additional Styling for Input */
+  .input-container {
+    margin-bottom: 30px;
+  }
+  
+  .input-container input {
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .input-container input:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+  
+.logout-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555; 
+  transition: color 0.3s;
+}
+
+.logout-icon:hover {
+  color: #f00; 
+}
