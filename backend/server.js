@@ -24,6 +24,7 @@ app.use("/api/auth", authRoutes);
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
 app.get("*", (req, res) => {
+    console.log("hello ji")
   res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
