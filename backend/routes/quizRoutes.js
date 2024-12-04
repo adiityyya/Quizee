@@ -63,6 +63,7 @@ router.post("/start/:id", protectRoute, async (req, res) => {
 router.post("/submit/:id", protectRoute, async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(id);
     const { score } = req.body;
     const email = req.user.email; // Extracted from JWT
 

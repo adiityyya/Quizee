@@ -26,7 +26,7 @@ const quizSchema = new mongoose.Schema(
               startedAt: { type: Date }, // Time when the user started the quiz
               expiresAt: {type: Date},
               submittedAt: { type: Date }, // Time of quiz submission
-              score: { type: Number }, // Optional score
+              score: { type: Number }, 
             },
           ],
     }

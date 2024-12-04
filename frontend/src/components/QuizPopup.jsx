@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import "./QuizPopup.css";
+import {useNavigate } from "react-router-dom";
 
 const QuizPopup = ({ quizId, onClose }) => {
+  const navigate = useNavigate();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(quizId);
-    // alert("Quiz ID copied to clipboard!");
+    toast.success("Copied!");
+
+
+    navigate("/");
   };
 
   return (

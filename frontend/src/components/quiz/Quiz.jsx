@@ -16,6 +16,8 @@ const Quiz = () => {
   const navigate = useNavigate();
 
   const question = data[index]; // Current question
+  const quizId = JSON.parse(localStorage.getItem('quizId'));
+  // console.log(quizId);
 
   const exit = async () => {
     try {
@@ -36,7 +38,32 @@ const Quiz = () => {
       toast.error(error.message);
     }
   };
-
+  
+  const nextQues = async () => {
+    if (index === data.length - 1) {
+      setResult(true);
+      try{
+        const res = await fetch(`/api/quiz/submit/${quizId}`, {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({ score }),
+        });
+        const data = await res.json();
+        toast.success(data.message);
+        if (data.error) {
+          throw new Error(data.error);
+        }
+      }
+      catch(error){
+        console.error("Quiz submission failed:", error.message);
+        toast.error("Failed to submit the quiz. Please try again!");
+      }
+      exit();
+    } else {
+      setIndex((prevIndex) => prevIndex + 1);
+      setSelectedOption(null);
+    }
+  };
   const checkAns = (optionIndex) => {
     setSelectedOption(optionIndex);
     if (question.correctAnswer=== optionIndex+1) {
@@ -44,14 +71,6 @@ const Quiz = () => {
     }    
   };
 
-  const nextQues = () => {
-    if (index === data.length - 1) {
-      setResult(true);
-    } else {
-      setIndex((prevIndex) => prevIndex + 1);
-      setSelectedOption(null);
-    }
-  };
 
   return (
     <div className="container">

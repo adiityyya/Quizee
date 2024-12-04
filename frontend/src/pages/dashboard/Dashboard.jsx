@@ -56,7 +56,7 @@ const Dashboard = () => {
       const data = await response.json();
       const questions = data.questions;
       
-      console.log(questions);
+      // console.log(questions);
 
       if (response.ok) {
         navigate(`/quiz`, { state: { quizData: questions } });

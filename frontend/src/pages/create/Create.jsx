@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import QuizPopup from "../../components/QuizPopup";
+import {useQuizContext} from "../../context/QuizContext"
+
 import "./Create.css";
 
 const Create = () => {
@@ -16,11 +18,13 @@ const Create = () => {
   const [option2, setOption2] = useState("");
   const [option3, setOption3] = useState("");
   const [option4, setOption4] = useState("");
-  const [correctAnswer, setCorrectAnswer] = useState(null);
+  const [correctAnswer, setCorrectAnswer] = useState("");
 
 
-  const [quizId, setQuizId] = useState(null);
+  // const [quizId, setQuizId] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+
+  const {quizId, setQuizId} = useQuizContext();
 
   const navigate = useNavigate();
 
@@ -69,7 +73,7 @@ const Create = () => {
     if (questionsArray.length === parseInt(numOfQuestions)) {
       handleSubmitQuiz();
     }
-  }, [questionsArray]); // Dependency array with questionsArray
+  }, [questionsArray]); 
 
   const handleSubmitQuiz = async () => {
     try {
@@ -89,10 +93,12 @@ const Create = () => {
       if (response.ok) {
         toast.success("Quiz created successfully!");
 
+        localStorage.setItem("quizId", JSON.stringify(data.quizId));
+
         setQuizId(data.quizId); // Save the quiz ID to display in popup
         setShowPopup(true);
 
-        // navigate("/dashboard");
+        // navigate("/");
       } else {
         toast.error(data.error || "Something went wrong!");
       }
