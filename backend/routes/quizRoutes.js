@@ -5,14 +5,16 @@ import protectRoute from "../middleware/protectRoute.js";
 
 const router = express.Router();
 
-router.post("/create", async (req, res) => {
+router.post("/create", protectRoute, async (req, res) => {
   try {
     const { questions, duration } = req.body;
+    const email = req.user.email;
 
     const quiz = new Quiz({
       title: req.body.title || "Untitled Quiz",
       questions, // Array of Question IDs (already created questions)
       duration,
+      creator: email,
     });
 
     await quiz.save();
@@ -47,7 +49,7 @@ router.post("/start/:id", protectRoute, async (req, res) => {
     quiz.submissions.push({ email, startedAt, expiresAt });
 
     await quiz.save();
-    
+
     res.status(200).json({
       message: "Quiz started",
       startedAt,
@@ -103,5 +105,33 @@ router.post("/submit/:id", protectRoute, async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+router.get("/lists", protectRoute, async (req, res) => {
+  try {
+    const email = req.user.email;
+    const quizzes = await Quiz.find({ creator: email });
 
+    res.status(200).json({ quizzes });
+  } catch (error) {
+    console.log("Error in lists controller.");
+    console.error(error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+router.get("/result/:id", protectRoute, async (req, res) => {
+  //get the quiz with this id and return the lists of submissions.
+  console.log("hi it hit.")
+  try {
+    const { id } = req.params;
+    const quiz = await Quiz.findById(id).populate("submissions");
+
+    if (!quiz) {
+      return res.status(404).json({ message: "Quiz not found" });
+    }
+
+    res.status(200).json({ submissions: quiz.submissions });
+  } catch (error) {
+    console.error("Error fetching quiz results:", error);
+    res.status(500).json({ message: "Server error, please try again later." });
+  }
+});
 export default router;

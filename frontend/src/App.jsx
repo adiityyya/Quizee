@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/AuthContext";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Create from "./pages/create/Create";
+import Quizzes from "./pages/quizzes/Quizzes";
 
 const App = () => {
   const { authUser } = useAuthContext();
@@ -15,6 +16,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={!authUser ? <Navigate to="/login"/> : <Dashboard/>}/>
+        <Route path="/quizzes" element={!authUser ? <Navigate to="/login"/> : <Quizzes/>}/>
         <Route path="/create" element={!authUser ? <Navigate to="/login"/> : <Create/>}/>
         <Route path="/quiz" element={!authUser ? <Navigate to="/login"/> : <Quiz/>}/>
         <Route

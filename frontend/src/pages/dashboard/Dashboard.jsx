@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [quizId, setQuizId] = useState(0);
   const navigate = useNavigate();
   const {setAuthUser} = useAuthContext();
+  
   const handleCreateQuiz = () => {
     console.log("create clicked.")
     navigate('/create');
@@ -36,7 +37,9 @@ const Dashboard = () => {
       toast.error("Error connecting to server.");
     }
   };
-
+  const handleN = () =>{
+    navigate('/quizzes');
+  }
   const handleAttemptQuiz = async () => {
     //i got the quizId.
     //now hit the api.
@@ -70,6 +73,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
+      
       <div className="dashboard-content">
         <h1>Welcome to the Quiz App</h1>
         <p>Select an option to proceed:</p>
@@ -78,7 +82,7 @@ const Dashboard = () => {
         <div className="input-container">
           <input type="text" placeholder="Enter Quiz ID" value={quizId} onChange={(e)=>{setQuizId(e.target.value)}} />
         </div>
-
+        <button onClick={handleN}>Your quizzes</button>
         {/* Buttons */}
         <div className="dashboard-buttons">
           {/* Create Quiz button with red color and plus sign */}

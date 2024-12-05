@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 const quizSchema = new mongoose.Schema(
     {
         title: { type: String, required: true },
-
+        creator : {
+          type: String,
+        },
         questions: [{
             question: { type: String, required: true },
             options: [{ type: String, required: true }],
@@ -26,7 +28,7 @@ const quizSchema = new mongoose.Schema(
               startedAt: { type: Date }, // Time when the user started the quiz
               expiresAt: {type: Date},
               submittedAt: { type: Date }, // Time of quiz submission
-              score: { type: Number }, 
+              score: { type: Number, default: 0 }, 
             },
           ],
     }

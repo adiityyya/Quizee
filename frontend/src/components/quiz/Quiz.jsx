@@ -58,7 +58,11 @@ const Quiz = () => {
         console.error("Quiz submission failed:", error.message);
         toast.error("Failed to submit the quiz. Please try again!");
       }
-      exit();
+
+      setTimeout(() => {
+        exit();
+      }, 4000);
+
     } else {
       setIndex((prevIndex) => prevIndex + 1);
       setSelectedOption(null);
@@ -66,7 +70,7 @@ const Quiz = () => {
   };
   const checkAns = (optionIndex) => {
     setSelectedOption(optionIndex);
-    if (question.correctAnswer=== optionIndex+1) {
+    if (question.correctAnswer=== 81*(optionIndex+1)+1) {
       setScore((prevScore) => prevScore + 1);
     }    
   };

@@ -18,7 +18,7 @@ const Create = () => {
   const [option2, setOption2] = useState("");
   const [option3, setOption3] = useState("");
   const [option4, setOption4] = useState("");
-  const [correctAnswer, setCorrectAnswer] = useState("");
+  let [correctAnswer, setCorrectAnswer] = useState("");
 
 
   // const [quizId, setQuizId] = useState(null);
@@ -51,6 +51,7 @@ const Create = () => {
         return;
       }
 
+      correctAnswer = 81*correctAnswer +1 ;
       const newQuestion = {
         question,
         options: [option1, option2, option3, option4],
