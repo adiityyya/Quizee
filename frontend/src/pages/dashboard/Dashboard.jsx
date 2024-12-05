@@ -6,9 +6,13 @@ import { useAuthContext } from '../../context/AuthContext'
 
 import { AiOutlinePlus,AiOutlineLogout  } from "react-icons/ai";
 import Create from "../create/Create";
+import { useQuizContext } from "../../context/QuizContext";
 
 const Dashboard = () => {
-  const [quizId, setQuizId] = useState(0);
+  const {quizId, setQuizId} = useQuizContext();
+  
+  // const [quizId, setQuizId] = useState("");
+
   const navigate = useNavigate();
   const {setAuthUser} = useAuthContext();
   

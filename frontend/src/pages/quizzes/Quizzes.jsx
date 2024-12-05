@@ -62,8 +62,9 @@ const Quizzes = () => {
 
             {result ? (
                 <div className="submissions-list">
-                    <h2>Submissions</h2>
-                    <div className="submission-cards">
+                    
+                    {submissions.length===0?(<h2>No submissions yet!</h2>):(<h2>Submissions</h2>)}
+                    {submissions.length===0?(<></>):(<div className="submission-cards">
                         {submissions.map((submission, index) => (
                             <div key={index} className="submission-card">
                                 <p><strong>Email:</strong> {submission.email}</p>
@@ -71,7 +72,8 @@ const Quizzes = () => {
                                 <p><strong>Submitted At:</strong> {new Date(submission.submittedAt).toLocaleString()}</p>
                             </div>
                         ))}
-                    </div>
+                    </div>)}
+                    
                     <button className="back-button" onClick={() => setResult(false)}>Back to Quizzes</button>
                 </div>
             ) : (

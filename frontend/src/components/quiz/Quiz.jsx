@@ -3,20 +3,23 @@ import "./Quiz.css";
 import { useAuthContext } from "../../context/AuthContext";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import {useQuizContext} from "../../context/QuizContext"
 
 const Quiz = () => {
   const { state } = useLocation();
   const data = state?.quizData;
+  const { setAuthUser } = useAuthContext();
+  const {quizId, setQuizId} = useQuizContext();
+
 
   const [index, setIndex] = useState(0); // Current question index
   const [score, setScore] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [result, setResult] = useState(false);
-  const { setAuthUser } = useAuthContext();
   const navigate = useNavigate();
 
   const question = data[index]; // Current question
-  const quizId = JSON.parse(localStorage.getItem('quizId'));
+  // const quizId = JSON.parse(localStorage.getItem('quizId'));
   // console.log(quizId);
 
   const exit = async () => {

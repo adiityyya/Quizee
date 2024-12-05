@@ -8,7 +8,7 @@ export const useQuizContext = () =>{
 };  
 
 export const QuizContextProvider = ({children}) =>{
-    const [quizId, setQuizId] = useState(JSON.parse(localStorage.getItem("quizId")) || null);
+    const [quizId, setQuizId] = useState(JSON.parse(localStorage.getItem("quizId")) || "");
 
     const value = {
         quizId,

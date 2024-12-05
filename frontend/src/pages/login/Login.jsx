@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import useLogin from "../../hooks/useLogin";
+import { useQuizContext } from "../../context/QuizContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {loginFunc} = useLogin();
+
+  const {quizId, setQuizId} = useQuizContext();
+
+  useEffect(()=>{
+    setQuizId("");
+  },[])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
