@@ -61,7 +61,7 @@ const Quiz = () => {
 
       setTimeout(() => {
         exit();
-      }, 4000);
+      }, 8000);
 
     } else {
       setIndex((prevIndex) => prevIndex + 1);
