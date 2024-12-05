@@ -75,7 +75,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       
       <div className="dashboard-content">
-        <h1>Welcome to the Quiz App</h1>
+        <h1>Welcome to Quizee</h1>
         <p>Select an option to proceed:</p>
 
         {/* Input field for quiz ID */}

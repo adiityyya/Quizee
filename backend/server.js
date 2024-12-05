@@ -11,6 +11,7 @@ const port = 5000;
 const app = express();
 
 const __dirname = path.resolve();
+
 //MIDDLEWARES
 app.use(cors());
 app.use(express.json());
@@ -24,18 +25,11 @@ app.use("/api/auth", authRoutes);
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
 app.get("*", (req, res) => {
-  console.log("hello ji");
-  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+  // console.log("hello ji");
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
 
 app.listen(port, () => {
-    connectToMongoDB()
-      .then(() => {
-        console.log('Connected to MongoDB successfully');
-      })
-      .catch((error) => {
-        console.error('Error connecting to MongoDB:', error);
-      });
-    console.log(`Server Running on port ${port}`);
-  });
-  
+  connectToMongoDB();
+  console.log(`Server Running on port ${port}`);
+});

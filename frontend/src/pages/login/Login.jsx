@@ -43,7 +43,7 @@ const Login = () => {
              />
           </div>
           <div>
-            <button className="lbtn">Sign up</button>
+            <button className="lbtn">Log in</button>
           </div>
           <div className="signup-link">
             Not a member? <Link to='/signup'>Sign up</Link>
