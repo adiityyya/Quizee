@@ -62,10 +62,6 @@ const Quiz = () => {
         toast.error("Failed to submit the quiz. Please try again!");
       }
 
-      setTimeout(() => {
-        exit();
-      }, 8000);
-
     } else {
       setIndex((prevIndex) => prevIndex + 1);
       setSelectedOption(null);
