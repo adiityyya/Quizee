@@ -13,7 +13,7 @@ const app = express();
 
 // MIDDLEWARES
 app.use(cors({
-  origin: "https://your-frontend-domain.vercel.app",
+  origin: process.env.frontend_url,
   credentials: true
 }));
 app.use(express.json());
