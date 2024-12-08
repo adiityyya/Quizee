@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("/api/auth/logout", {
+      const res = await fetch("https://quizee-backend-eight.vercel.app/api/auth/logout", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 			});
@@ -53,7 +53,7 @@ const Dashboard = () => {
         return;
       }
 
-      const response = await fetch(`/api/quiz/start/${quizId}`, {
+      const response = await fetch(`https://quizee-backend-eight.vercel.app/api/quiz/start/${quizId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

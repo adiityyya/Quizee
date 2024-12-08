@@ -11,7 +11,7 @@ const Quizzes = () => {
     useEffect(() => {
         const fetchQuizzes = async () => {
             try {
-                const res = await fetch("/api/quiz/lists", {
+                const res = await fetch("https://quizee-backend-eight.vercel.app/api/quiz/lists", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const Quizzes = () => {
     // Handle quiz card click and fetch the submissions for that quiz
     const handleQuizClick = async (quizId) => {
         try {
-            const res = await fetch(`/api/quiz/result/${quizId}`, {
+            const res = await fetch(`https://quizee-backend-eight.vercel.app/api/quiz/result/${quizId}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

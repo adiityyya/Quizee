@@ -78,7 +78,7 @@ const Create = () => {
 
   const handleSubmitQuiz = async () => {
     try {
-      const response = await fetch("/api/quiz/create", {
+      const response = await fetch("https://quizee-backend-eight.vercel.app/api/quiz/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -24,7 +24,7 @@ const Quiz = () => {
 
   const exit = async () => {
     try {
-      const res = await fetch("/api/auth/logout", {
+      const res = await fetch("https://quizee-backend-eight.vercel.app/api/auth/logout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
@@ -46,7 +46,7 @@ const Quiz = () => {
     if (index === data.length - 1) {
       setResult(true);
       try{
-        const res = await fetch(`/api/quiz/submit/${quizId}`, {
+        const res = await fetch(`https://quizee-backend-eight.vercel.app/api/quiz/submit/${quizId}`, {
           method: "POST",
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify({ score }),
