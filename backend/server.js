@@ -15,11 +15,18 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 // MIDDLEWARES
-app.use(cors({
-  origin: "https://quizee-frontend-indol.vercel.app",
-  methods: ["POST","GET"],
-  credentials: true
-}));
+// Configure CORS
+const corsOptions = {
+  origin: "https://quizee-frontend-indol.vercel.app", 
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"], 
+};
+
+// Use CORS middleware
+app.use(cors(corsOptions));
+
+app.options("*", cors(corsOptions));
+
 // app.use(express.static(path.join(__dirname, "/frontend/dist")));
 app.use(express.json());
 app.use(cookieParser());
