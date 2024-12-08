@@ -16,7 +16,7 @@ const app = express();
 
 // MIDDLEWARES
 app.use(cors({
-  origin: process.env.frontend_url,
+  origin: "https://quizee-frontend-indol.vercel.app",
   methods: ["POST","GET"],
   credentials: true
 }));
